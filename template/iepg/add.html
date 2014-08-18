@@ -25,8 +25,8 @@
 <a href='/iepg/g1/11'>福祉</a>
 <a href='/iepg/g1/15'>その他</a> 
 <br>
-<h3>☆お気に入り☆</h3>
 {% if fvl %}
+<h3>☆お気に入り☆</h3>
 {% if fvl.fav_ch01 == True %}<a href='/iepg/sta/1/'>ＮＨＫ総合・東京</a>{% endif %}
 {% if fvl.fav_ch02 == True %}<a href='/iepg/sta/2/'>ＮＨＫＥテレ１・東京</a>{% endif %}
 {% if fvl.fav_ch04 == True %}<a href='/iepg/sta/4/'>日テレ</a>{% endif %}
@@ -51,7 +51,7 @@
 {% if fvl.fav_gn15 == True %}<a href='/iepg/g1/15'>その他</a>{% endif %}
 {% endif  %}
 <hr>
-<form action="post" method="post">
+<form action="/add/" method="post">
   {% csrf_token %}
   <input type="checkbox" value="fav_ch01" name="fav">ＮＨＫ総合・東京<br>
   <input type="checkbox" value="fav_ch02" name="fav">ＮＨＫＥテレ１・東京<br>

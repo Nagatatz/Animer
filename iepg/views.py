@@ -28,12 +28,19 @@ def index(request):
     if request.user.is_authenticated():
         latest_program_list = Program.objects.all()[:60]
         usr_id = User.objects.get(username=request.user.username)
-        fav_list = Favorites.objects.filter(user = usr_id).get()
-        return render_to_response('iepg/index.html',
-                                  {'latest_program_list':latest_program_list,
-                                   'fvl':fav_list,
-                                   'usr':usr_id}
-                                  )
+        try:
+            fav_list = Favorites.objects.filter(user = usr_id).get()
+            return render_to_response('iepg/index.html',
+                                      {'latest_program_list':latest_program_list,
+                                       'fvl':fav_list,
+                                       'usr':usr_id}
+                                      )
+        except:
+            return render_to_response('iepg/index.html',
+                                      {'latest_program_list':latest_program_list,
+                                       'usr':usr_id}
+                                      )
+
     else:
         #return render_to_response('login.html',{},
                                   #context_instance=RequestContext(request)
@@ -174,17 +181,38 @@ def mypage(request):
 def add(request):
     if request.user.is_authenticated():
         usr_id = User.objects.get(username=request.user.username)
-        fav_list = Favorites.objects.filter(user = usr_id).get()
+        try:
+            fav_list = Favorites.objects.filter(user = usr_id).get()
+        except:
+            pass
         #d = Favorites.objects.filter(user = usr_id).get()
         if request.method == 'POST':
             #c = {}
             #c.update(csrf(request))
             d = request.POST.getlist('fav')
             #d.update(csrf(request))
-        return render_to_response('iepg/add.html',
-                                  {'fvl':fav_list,
-                                   'usr':usr_id}, 
-                                  context_instance=RequestContext(request))
+            try:
+                fav_list = Favorites.objects.filter(user = usr_id).get()
+                return render_to_response('iepg/index.html',
+                                          {'fvl':fav_list,
+                                           'usr':usr_id}, 
+                                          context_instance=RequestContext(request))
+            except:
+                return render_to_response('iepg/index.html',
+                                          {'usr':usr_id},
+                                          context_instance=RequestContext(request))
+        else:
+            try:
+                fav_list = Favorites.objects.filter(user = usr_id).get()
+                return render_to_response('iepg/add.html',
+                                          {'fvl':fav_list,
+                                           'usr':usr_id},
+                                          context_instance=RequestContext(request))
+            except:
+                return render_to_response('iepg/add.html',
+                                          {'usr':usr_id},
+                                          context_instance=RequestContext(request))
+            
     else:                          
         t = loader.get_template('login_off.html')
         c = RequestContext(request)
