@@ -61,14 +61,24 @@ WSGI_APPLICATION = 'animer.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'tvpi',
+#        'USER': 'lec37146468',
+#        'PASSWORD': 'dblec2014',
+#        'HOST': 'lec37146468.cl0uibxdjssl.us-west-2.rds.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#        'PORT': '3306',                      # Set to empty string for default.
+#    },
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tvpi',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'HOST': '',
+        'PORT': '',                      # Set to empty string for default.       
     }
+
 }
 
 # Internationalization
