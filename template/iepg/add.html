@@ -1,0 +1,79 @@
+<h2>iEPG list</h2>
+<Div Align="right">User:{{usr}} <a href='/out/'>logout</a></Div>
+<br>
+<a href='/iepg/sta/1'>ＮＨＫ総合・東京</a> 
+<a href='/iepg/sta/2'>ＮＨＫＥテレ１・東京</a> 
+<a href='/iepg/sta/4'>日テレ</a> 
+<a href='/iepg/sta/5'>テレビ朝日</a> 
+<a href='/iepg/sta/6'>ＴＢＳ</a> 
+<a href='/iepg/sta/7'>テレビ東京</a> 
+<a href='/iepg/sta/8'>フジテレビ</a> 
+<a href='/iepg/sta/9'>ＴＯＫＹＯ　ＭＸ１</a>
+<a href='/iepg/sta/10'>放送大学１</a>
+<br>
+<a href='/iepg/g1/0'>ニュース／報道</a>
+<a href='/iepg/g1/1'>スポーツ</a>
+<a href='/iepg/g1/2'>情報／ワイドショー</a>
+<a href='/iepg/g1/3'>ドラマ</a>
+<a href='/iepg/g1/4'>音楽</a>
+<a href='/iepg/g1/5'>バラエティ</a>
+<a href='/iepg/g1/6'>映画</a>
+<a href='/iepg/g1/7'>アニメ／特撮</a>
+<a href='/iepg/g1/8'>ドキュメンタリー／教養</a>
+<a href='/iepg/g1/9'>劇場／公演</a>
+<a href='/iepg/g1/10'>趣味／教育</a>
+<a href='/iepg/g1/11'>福祉</a>
+<a href='/iepg/g1/15'>その他</a> 
+<br>
+<h3>☆お気に入り☆</h3>
+{% if fvl %}
+{% if fvl.fav_ch01 == True %}<a href='/iepg/sta/1/'>ＮＨＫ総合・東京</a>{% endif %}
+{% if fvl.fav_ch02 == True %}<a href='/iepg/sta/2/'>ＮＨＫＥテレ１・東京</a>{% endif %}
+{% if fvl.fav_ch04 == True %}<a href='/iepg/sta/4/'>日テレ</a>{% endif %}
+{% if fvl.fav_ch05 == True %}<a href='/iepg/sta/5/'>テレビ朝日</a>{% endif %}
+{% if fvl.fav_ch06 == True %}<a href='/iepg/sta/6/'>ＴＢＳ</a>{% endif %}
+{% if fvl.fav_ch07 == True %}<a href='/iepg/sta/7/'>テレビ東京</a>{% endif %}
+{% if fvl.fav_ch08 == True %}<a href='/iepg/sta/8/'>フジテレビ</a>{% endif %}
+{% if fvl.fav_ch09 == True %}<a href='/iepg/sta/9/'>ＴＯＫＹＯ　ＭＸ１</a>{% endif %}
+{% if fvl.fav_ch10 == True %}<a href='/iepg/sta/10/'>放送大学１</a>{% endif %}
+{% if fvl.fav_gn00 == True %}<a href='/iepg/g1/0'>ニュース／報道</a>{% endif %}
+{% if fvl.fav_gn01 == True %}<a href='/iepg/g1/1'>スポーツ</a>{% endif %}
+{% if fvl.fav_gn02 == True %}<a href='/iepg/g1/2'>情報／ワイドショー</a>{% endif %}
+{% if fvl.fav_gn03 == True %}<a href='/iepg/g1/3'>ドラマ</a>{% endif %}
+{% if fvl.fav_gn04 == True %}<a href='/iepg/g1/4'>音楽</a>{% endif %}
+{% if fvl.fav_gn05 == True %}<a href='/iepg/g1/5'>バラエティ</a>{% endif %}
+{% if fvl.fav_gn06 == True %}<a href='/iepg/g1/6'>映画</a>{% endif %}
+{% if fvl.fav_gn07 == True %}<a href='/iepg/g1/7'>アニメ／特撮</a>{% endif %}
+{% if fvl.fav_gn08 == True %}<a href='/iepg/g1/8'>ドキュメンタリー／教養</a>{% endif %}
+{% if fvl.fav_gn09 == True %}<a href='/iepg/g1/9'>劇場／公演</a>{% endif %}
+{% if fvl.fav_gn10 == True %}<a href='/iepg/g1/10'>趣味／教育</a>{% endif %}
+{% if fvl.fav_gn11 == True %}<a href='/iepg/g1/11'>福祉</a>{% endif %}
+{% if fvl.fav_gn15 == True %}<a href='/iepg/g1/15'>その他</a>{% endif %}
+{% endif  %}
+<hr>
+<form action="post" method="post">
+  {% csrf_token %}
+  <input type="checkbox" value="fav_ch01" name="fav">ＮＨＫ総合・東京<br>
+  <input type="checkbox" value="fav_ch02" name="fav">ＮＨＫＥテレ１・東京<br>
+  <input type="checkbox" value="fav_ch04" name="fav">日テレ<br>
+  <input type="checkbox" value="fav_ch05" name="fav">テレビ朝日<br>
+  <input type="checkbox" value="fav_ch06" name="fav">ＴＢＳ<br>
+  <input type="checkbox" value="fav_ch07" name="fav">テレビ東京<br>
+  <input type="checkbox" value="fav_ch08" name="fav">フジテレビ<br>
+  <input type="checkbox" value="fav_ch09" name="fav">ＴＯＫＹＯ　ＭＸ１<br>
+  <input type="checkbox" value="fav_ch10" name="fav">放送大学１<br>
+  <input type="checkbox" value="fav_gn00" name="fav">ニュース／報道<br>
+  <input type="checkbox" value="fav_gn01" name="fav">スポーツ<br>
+  <input type="checkbox" value="fav_gn02" name="fav">情報／ワイドショー<br>
+  <input type="checkbox" value="fav_gn03" name="fav">ドラマ<br>
+  <input type="checkbox" value="fav_gn04" name="fav">音楽<br>
+  <input type="checkbox" value="fav_gn05" name="fav">バラエティ<br>
+  <input type="checkbox" value="fav_gn06" name="fav">映画<br>
+  <input type="checkbox" value="fav_gn07" name="fav">アニメ／特撮<br>
+  <input type="checkbox" value="fav_gn08" name="fav">ドキュメンタリー／教養<br>
+  <input type="checkbox" value="fav_gn09" name="fav">劇場／公演<br>
+  <input type="checkbox" value="fav_gn10" name="fav">趣味／教育<br>
+  <input type="checkbox" value="fav_gn10" name="fav">福祉<br>
+  <input type="checkbox" value="fav_gn15" name="fav">その他<br>
+  <input type="submit" value="Submit" />
+</form>

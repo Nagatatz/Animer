@@ -1,0 +1,9 @@
+{% if identified_program %}
+    <ul>
+    {% for iepg in identified_program %}
+        <li><a href="/iepg/id/{{iepg.id}}/">{{iepg.title}}</a></li>{{iepg.start}}-{{iepg.end}} {{iepg.get_station_display}} {{iepg.get_gen_1_display}}<br>{{iepg.comments}} <br><br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No program are available.</p>
+{% endif %}

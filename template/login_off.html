@@ -1,0 +1,15 @@
+<h2>login</h2>
+<form action='/enter/' method='post'>
+{% csrf_token %}
+name: <input type='text' name='name' /><br />
+pass: <input type='password' name='pass' /><br />
+<input type='submit' value='login' />
+</form>
+<hr />
+<h2>make new account</h2>
+<form action='/make/' method='post'>
+{% csrf_token %}
+name: <input type='text' name='name' /><br />
+pass: <input type='password' name='pass' /><br />
+<input type='submit' value='make' />
+</form>

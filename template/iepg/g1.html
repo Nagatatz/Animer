@@ -1,0 +1,35 @@
+<h>iEPG list</h2>
+<Div Align="right"><a href='/out/'>logout</a></Div>
+<br>
+<a href='/iepg/sta/1'>ＮＨＫ総合・東京</a> 
+<a href='/iepg/sta/2'>ＮＨＫＥテレ１・東京</a> 
+<a href='/iepg/sta/4'>日テレ</a> 
+<a href='/iepg/sta/5'>テレビ朝日</a> 
+<a href='/iepg/sta/6'>ＴＢＳ</a> 
+<a href='/iepg/sta/7'>テレビ東京</a> 
+<a href='/iepg/sta/8'>フジテレビ</a> 
+<a href='/iepg/sta/9'>放送大学１ </a>
+<br>
+<a href='/iepg/g1/0'>ニュース／報道</a>
+<a href='/iepg/g1/1'>スポーツ</a>
+<a href='/iepg/g1/2'>情報／ワイドショー</a>
+<a href='/iepg/g1/3'>ドラマ</a>
+<a href='/iepg/g1/4'>音楽</a>
+<a href='/iepg/g1/5'>バラエティ</a>
+<a href='/iepg/g1/6'>映画</a>
+<a href='/iepg/g1/7'>アニメ／特撮</a>
+<a href='/iepg/g1/8'>ドキュメンタリー／教養</a>
+<a href='/iepg/g1/9'>劇場／公演</a>
+<a href='/iepg/g1/10'>趣味／教育</a>
+<a href='/iepg/g1/11'>福祉</a>
+<a href='/iepg/g1/15'>その他</a> 
+<hr>
+{% if ip_list %}
+<ul>
+{% for iepg in ip_list %}
+<li><a href="/iepg/id/{{iepg.id}}/">{{iepg.title}}</a></li>{{iepg.start}}-{{iepg.end}}<a href="/iepg/sta/{{iepg.station}}/"> {{iepg.get_station_display}}</a> {{iepg.get_gen_1_display}}<br>{{iepg.comments}} <br><br>
+{% endfor %}
+</ul>
+{% else %}
+<p>No program are available.</p>
+{% endif %}
